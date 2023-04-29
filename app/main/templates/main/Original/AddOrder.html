@@ -1,0 +1,330 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block 'title' %}ShipNow - Add New Order{% endblock %}
+{% block 'container' %}       
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+
+<div class="row page-titles">
+    <div class="col-md-6 col-8 align-self-center">
+        <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+    </div>
+    <!-- <div class="col-md-6 col-4 align-self-center">
+        <a href="https://wrappixel.com/templates/monsteradmin/" class="btn pull-right hidden-sm-down btn-success"> Upgrade to Pro</a>
+    </div> -->
+</div>
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<form method="post">
+{% csrf_token %}
+	<div class="row" id="order_form">
+
+	    <div class="col-4">
+	        <div class="card">
+	            <div class="card-block">
+						<div class="form-group">
+							<select id="pickup_address_selector" name="pickup_address_selector" class="form-control">
+								<option value="0">Select Pickup Address</option>
+								{% for address in addresses %}
+									<option value="{{address.id}}">{{address.name}}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<hr>
+						<div class="form-group">
+							<center>OR</center>
+						</div>
+
+						<div class="form-group">
+							{{addressform1.name}}
+						</div>
+						<div class="form-group">
+							{{addressform1.address}}
+						</div>
+						<div class="form-group">
+							{{addressform1.country}}
+						</div>
+						<div class="form-group">
+							{{addressform1.state}}
+						</div>
+						<div class="form-group">
+							{{addressform1.city}}
+						</div>
+						<div class="form-group">
+							{{addressform1.pincode}}
+						</div>
+						<div class="form-group">
+							{{addressform1.phone}}
+						</div>
+						<div class="form-group">
+							{{addressform1.email}}
+						</div>
+						<div class="form-group">
+						    <input type="checkbox" id="pickup_save" value="True">
+						    <label for="pickup_save">Save Pickup Address</label>
+						</div>
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="col-4">
+	        <div class="card">
+	            <div class="card-block">
+	            	<div class="form-group">
+					<select id="delivery_address_selector" name="delivery_address_selector" class="form-control">
+						<option value="0">Select Delivery Address</option>
+						{% for address in addresses %}
+							<option value="{{address.id}}">{{address.name}}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<hr>
+				<div class="form-group">
+					<center>OR</center>
+				</div>
+
+				<div class="form-group">
+					{{addressform2.name}}
+				</div>
+				<div class="form-group">
+					{{addressform2.address}}
+				</div>
+				<div class="form-group">
+					{{addressform2.country}}
+				</div>
+				<div class="form-group">
+					{{addressform2.state}}
+				</div>
+				<div class="form-group">
+					{{addressform2.city}}
+				</div>
+				<div class="form-group">
+					{{addressform2.pincode}}
+				</div>
+				<div class="form-group">
+					{{addressform2.phone}}
+				</div>
+				<div class="form-group">
+					{{addressform2.email}}
+				</div>
+				<div class="form-group">
+				    <input type="checkbox" id="delivery_save" value="True">
+				    <label for="delivery_save" style="font-weight: 400;">Save Delivery Address</label>
+				</div>
+			</div>
+	        </div>
+	    </div>
+
+	    <div class="col-4">
+	        <div class="card">
+	            <div class="card-block">
+	            	<div class="form-group">
+						<select name="product_selector" class="form-control" id="product_selector">
+						<option value="0">Select Product</option>
+						{% for product in products %}
+							<option value="{{product.id}}">{{product.name}}</option>
+						{% endfor %}
+						</select>
+					</div>
+					<hr>
+					<div class="form-group">
+					<center>OR</center>
+					</div>
+					<div class="form-group">
+						{{productform.name}}
+					</div>
+					<div class="form-group">
+						{{productform.price}}
+					</div>
+					<div class="form-group">
+						{{productform.sku}}
+					</div>
+					<div class="form-group">
+						{{productform.hsn}}
+					</div>
+					<div class="form-group">
+						{{productform.weight}}
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-4">
+							{{productform.length}}
+						</div>
+						<div class="form-group col-sm-4">
+							{{productform.breadth}}
+						</div>
+						<div class="form-group col-sm-4">
+							{{productform.height}}
+						</div>
+					</div>
+					<div class="form-group">
+					    <input type="checkbox" id="product_save" value="True">
+					    <label for="product_save">Save Product</label><br></div>
+					    <hr>
+					<div class="form-group">
+							<select name="payment_mode" class="form-control" id="payment_mode" required>
+							<option value="0">Select Payment Method</option>
+							<option value="prepaid">Pre-Paid</option>
+							<option value="cod">Cash on Delivery</option>
+							</select>
+					</div>
+			
+					<div class="form-group">
+						<input type="number" name="order_amount" id="order_amount" placeholder="Enter Order Invoice Amount (₹)" class="form-control" required>
+					</div>
+					<div>
+						<button type="submit" class="btn btn-primary">Select Courier</button>
+					</div>
+				</div>
+			</div>
+	    </div>
+	</div>
+</form>
+
+
+    
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
+{% endblock %}
+
+{% block 'custom_addorder_script' %}
+<script type="text/javascript">
+//--------------------------------------------------------------------------//
+		//Pickup Address Form Filling
+
+		$("#pickup_address_selector").change(function()
+		{
+		var pickup = $('#pickup_address_selector').find(":selected").text();
+		// Fetching Addresses from api
+			xhr=new XMLHttpRequest();
+			xhr.open("GET","/fetchaddress/");
+			xhr.send();
+
+			xhr.onreadystatechange=function()
+			{
+				if(xhr.readyState==4){
+					data=JSON.parse(xhr.responseText);
+					addresses=JSON.parse(data.addresses);
+					for(i=0;i<addresses.length;i++)
+					{
+						address=addresses[i].fields;
+						if(address.name == pickup)
+						{
+							//alert(address.address);
+							$("#pickup_name").val(address.name);
+							$("#pickup_address").val(address.address);
+							$("#pickup_country").val(address.country);
+							$("#pickup_state").val(address.state);
+							$("#pickup_city").val(address.city);
+							$("#pickup_pincode").val(address.pincode);
+							$("#pickup_phone").val(address.phone);
+							$("#pickup_email").val(address.email);
+						}
+					}
+				}
+			}
+		});
+//----------------------------------------------------------------------------//
+
+		//Delivery Address Form Filling
+
+		$("#delivery_address_selector").change(function()
+		{
+		var pickup = $('#delivery_address_selector').find(":selected").text();
+		// Fetching Addresses from api
+			xhr=new XMLHttpRequest();
+			xhr.open("GET","/fetchaddress/");
+			xhr.send();
+
+			xhr.onreadystatechange=function()
+			{
+				if(xhr.readyState==4){
+					data=JSON.parse(xhr.responseText);
+					addresses=JSON.parse(data.addresses);
+					for(i=0;i<addresses.length;i++)
+					{
+						address=addresses[i].fields;
+						if(address.name == pickup)
+						{
+							//alert(address.address);
+							$("#delivery_name").val(address.name);
+							$("#delivery_address").val(address.address);
+							$("#delivery_country").val(address.country);
+							$("#delivery_state").val(address.state);
+							$("#delivery_city").val(address.city);
+							$("#delivery_pincode").val(address.pincode);
+							$("#delivery_phone").val(address.phone);
+							$("#delivery_email").val(address.email);
+						}
+					}
+				}
+			}
+		});
+
+//------------------------------------------------------------------------------//
+
+//Product Details Form Filling
+
+		$("#product_selector").change(function()
+		{
+		var selected_product = $('#product_selector').find(":selected").text();
+		// Fetching Addresses from api
+			xhr=new XMLHttpRequest();
+			xhr.open("GET","/fetchproduct/");
+			xhr.send();
+
+			xhr.onreadystatechange=function()
+			{
+				if(xhr.readyState==4){
+					data=JSON.parse(xhr.responseText);
+					products=JSON.parse(data.products);
+					for(i=0;i<products.length;i++)
+					{
+						product=products[i].fields;
+						if(product.name == selected_product)
+						{
+							//alert(address.address);
+							$("#product_name").val(product.name);
+							$("#product_price").val(product.price);
+							$("#product_sku").val(product.sku);
+							$("#product_hsn").val(product.hsn);
+							$("#product_weight").val(product.weight);
+							$("#product_length").val(product.length);
+							$("#product_breadth").val(product.breadth);
+							$("#product_height").val(product.height);
+						}
+					}
+				}
+			}
+		});
+//-----------------------------------------------------------------------------//
+
+	function UpdateAddress2(){
+		fields=document.getElementsByTagName('input');
+		for(i=0;i<fields.length;i++){
+			if(fields[i].type!='hidden')
+			fields[i].name=fields[i].id;
+		}
+		fields=document.getElementsByTagName('select');
+		for(i=0;i<fields.length;i++){
+			fields[i].name=fields[i].id;
+		}
+		fields=document.getElementsByTagName('textarea');
+		for(i=0;i<fields.length;i++){
+			fields[i].name=fields[i].id;
+		}
+	}
+
+	UpdateAddress2();
+</script>
+{% endblock %}

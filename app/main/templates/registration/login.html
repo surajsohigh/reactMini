@@ -1,0 +1,256 @@
+<!-- {% block 'title' %}Pushpaq - Login{% endblock %}
+{% block 'container' %}
+    
+
+         ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+
+    <!-- <div class="row page-titles">	
+        <div class="col-md-6 col-8 align-self-center">
+            <h3 class="text-themecolor m-b-0 m-t-0">Login</h3>
+        </div>
+    </div> -->
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+         
+	<!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- <div class="row">
+        <div class="col-md-4 offset-md-3">
+            <div class="card">
+                <div class="card-block">
+                    <h1>Login</h1>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+
+            </div>
+	        
+	    </div>
+	</div>
+	</div>
+	</div>
+	 ============================================================== -->
+	<!-- End PAge Content -->
+	<!-- ============================================================== -->
+<!-- {% endblock %} -->
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png"> -->
+    <title>Login | Pushpaq</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="{% static 'css/colors/blue.css' %}" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="">
+                        <!-- Logo icon -->
+                        <b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="{% static '/assets/images/logo.png' %}" alt="homepage" width="200" class="dark-logo" />
+                            
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <!-- <span> -->
+                         <!-- dark Logo text -->
+                         <!-- <img src="{% static '/assets/images/logo-text.png' %}" alt="homepage" class="dark-logo" /> -->
+                         <!-- </span> -->
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0 ">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item hidden-sm-down">
+                            <!-- <form class="app-search p-l-20">
+                                <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a>
+                            </form> -->
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+       
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+    
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="">
+                <div class="row no-gutters">
+                    <div class="col-md-6">
+<div class="welcome-page"></div>
+                    </div>
+                    <div class="col-md-6 pushpaq_login">
+                        <div class="card">
+                            <div class="card-block">
+                                <h1>Login</h1>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button type="submit">Login</button>
+                                    <p><a href="#" class="pfg">Forgot Password</a></p>
+                                    <p>New User <a href="{% url 'register' %}" class="pfg">Create Account</a> here</p>
+                                </form>
+                            </div>
+            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+                <!-- ============================================================== -->
+            <!-- <footer class="footer text-center" style="left:0px">
+                © 2023 Pushpaq
+            </footer> -->
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{% static '/assets/plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static '/assets/plugins/bootstrap/js/tether.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'js/sidebarmenu.js' %}"></script>
+    <!--stickey kit -->
+    <script src="{% static '/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'js/custom.min.js' %}"></script>
+    {% block 'custom_addorder_script' %}
+    {% endblock %}
+    
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="{% static '/assets/plugins/styleswitcher/jQuery.style.switcher.js' %}"></script>
+<style>
+.pushpaq_login {
+    padding: 50px !important;
+    text-align: center;
+    background: #f1eaea;
+}
+.welcome-page {
+    background: url(../../static/assets/images/welcome-page.jpg);
+    height: 91vh;
+    background-size: cover;
+}
+label {
+    display: block;
+    text-align: left;
+}
+input {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border-color: #ccc;
+    box-shadow: 1px 2px 5px 0px #665a5a4d;
+    width: 100%;
+}
+button {
+    width: 100%;
+    background: red;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 25px;
+    border: 0px;
+    border-radius: 6px;
+    padding: 10px;
+}
+</style>
+
+
+</body>
+
+</html>
+

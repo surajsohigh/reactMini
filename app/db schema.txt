@@ -1,0 +1,37 @@
+Address:
+	id
+	name
+	address
+	country
+	state
+	city
+	pincode
+	phone
+	email
+
+
+Products:
+	id
+	name
+	price
+	sku
+	hsn
+	weight
+	length
+	breadth
+	height
+
+Order Model:
+	id
+	pickup -- Foreign key to Address
+	delivery -- Foreign key to Address
+	product -- Foreign key to Product
+	payment_mode - whether COD or Prepaid
+	amount -- Total amount including Shipping Charges and GST as applicable.
+	datetime -- Order Date
+
+Shipment Model:
+	Order
+	Courier
+	AWB
+	Tracking

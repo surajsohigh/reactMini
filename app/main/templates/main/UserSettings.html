@@ -1,0 +1,85 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block 'title' %}ShipNow - Displaying Products{% endblock %}
+{% block 'container' %}
+	
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+
+    <div class="row page-titles">	
+        <div class="col-md-6 col-8 align-self-center">
+            <h3 class="text-themecolor m-b-0 m-t-0">Manage Address</h3>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item">Address</li>
+                <li class="breadcrumb-item active">Manage</li>
+            </ol>
+        </div>
+        <!-- <div class="col-md-6 col-4 align-self-center">
+            <a href="/addproduct/" class="btn pull-right hidden-sm-down btn-success"> Add Product</a>
+        </div> -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+         
+	<!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-block">
+
+
+                    <h2>Updating the Product</h2><br>
+                    <form method="post">
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td>Name</td>
+                                <td>{{form.name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td>{{form.price}}</td>
+                            </tr>
+                            <tr>
+                                <td>SKU</td>
+                                <td>{{form.sku}}</td>
+                            </tr>
+                            <tr>
+                                <td>HSN</td>
+                                <td>{{form.hsn}}</td>
+                            </tr>
+                            <tr>
+                                <td>Weight (in KGs)</td>
+                                <td>{{form.weight}}</td>
+                            </tr>
+                            <tr>
+                                <td>Length</td>
+                                <td>{{form.length}}</td>
+                            </tr>
+                            <tr>
+                                <td>Breadth</td>
+                                <td>{{form.breadth}}</td>
+                            </tr>
+                            <tr>
+                                <td>Height</td>
+                                <td>{{form.height}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" align="right"><input type="submit"></td>
+                            </tr>
+                        </table>
+                    </form>
+	        
+	    </div>
+	</div>
+	</div>
+	</div>
+	<!-- ============================================================== -->
+	<!-- End PAge Content -->
+	<!-- ============================================================== -->
